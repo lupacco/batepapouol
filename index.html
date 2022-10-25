@@ -9,36 +9,52 @@
     <title>Bate papo UOL</title>
 </head>
 <body>
-    <div onclick="setMenu()" class="menu hide">
+    <div class="menu hide">
+        <div onclick="setMenu()" class="closeMenu"></div>
         <section>
             <h1>Escolha um contato<br> para enviar mensagem</h1>
-            <h2>
-                <ion-icon size="large" name="people-outline"></ion-icon>
-                <p>Todos</p>
+            <h2 onclick="checkOption(this)">
+                <div>
+                    <ion-icon size="large" name="people"></ion-icon>
+                    <p>Todos</p>
+                </div>
+                <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
             </h2>
-            <h2>
-                <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                <p>João</p>
+            <h2 onclick="checkOption(this)">
+                <div>
+                    <ion-icon size="large" name="person-circle-outline"></ion-icon>
+                    <p>João</p>
+                </div>
+                <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
             </h2>
-            <h2>
-                <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                <p>Maria</p>
+            <h2 onclick="checkOption(this)">
+                <div>
+                    <ion-icon size="large" name="person-circle-outline"></ion-icon>
+                    <p>Maria</p>
+                </div>
+                <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
             </h2>
             <h1>Escolha a visibilidade</h1>
-            <h2>
-                <ion-icon size="large" name="lock-open-outline"></ion-icon>
-                <p>Público</p>
+            <h2 onclick="checkOption(this)">
+                <div>
+                    <ion-icon size="large" name="lock-open-outline"></ion-icon>
+                    <p>Público</p>
+                </div>
+                <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
             </h2>
-            <h2>
-                <ion-icon size="large" name="lock-closed-outline"></ion-icon>
-                <p>Reservadamente</p>
+            <h2 onclick="checkOption(this)">
+                <div>
+                    <ion-icon size="large" name="lock-closed-outline"></ion-icon>
+                    <p>Reservadamente</p>
+                </div>
+                <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
             </h2>
         </section>
     </div>
     <header>
         <img src="images/logo 1.png" alt="">
         <button onclick="setMenu()">
-            <ion-icon size="large" name="people-outline"></ion-icon>
+            <ion-icon class="menuIcon" size="large" name="people"></ion-icon>
         </button>
     </header>
     <main>

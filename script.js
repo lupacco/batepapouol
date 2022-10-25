@@ -7,3 +7,8 @@ function setMenu(){
     let menu = document.querySelector('.menu')
     menu.classList.toggle('hide')
 }
+
+function checkOption(option){
+    let icon = option.querySelector('.check')
+    icon.classList.toggle('hide')
+}
