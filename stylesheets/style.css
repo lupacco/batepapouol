@@ -23,8 +23,7 @@ header{
     box-shadow: 8px 0 10px #D1D1D1;
 }
 header button ion-icon{
-    font-size: 64px; 
-    color: #28BB25;
+    font-size: 48px; 
 }
 main{
     margin-top: 6.5em;
@@ -83,7 +82,7 @@ button{
 }
 .closeMenu{
     position: absolute;
-    width: 20%;
+    width: 30%;
     height: 100%;
     left: 0;
 }
@@ -115,6 +114,11 @@ h2 div{
 }
 h2 p{
     margin: 0 8px;
+    padding-top: 4px;
+}
+.lock{
+    font-size: 24px;
+    padding-bottom: 4px;
 }
 .check{
     color: #28BB25;
