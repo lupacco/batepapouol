@@ -9,9 +9,37 @@
     <title>Bate papo UOL</title>
 </head>
 <body>
+    <div onclick="setMenu()" class="menu hide">
+        <section>
+            <h1>Escolha um contato<br> para enviar mensagem</h1>
+            <h2>
+                <ion-icon size="large" name="people-outline"></ion-icon>
+                <p>Todos</p>
+            </h2>
+            <h2>
+                <ion-icon size="large" name="person-circle-outline"></ion-icon>
+                <p>João</p>
+            </h2>
+            <h2>
+                <ion-icon size="large" name="person-circle-outline"></ion-icon>
+                <p>Maria</p>
+            </h2>
+            <h1>Escolha a visibilidade</h1>
+            <h2>
+                <ion-icon size="large" name="lock-open-outline"></ion-icon>
+                <p>Público</p>
+            </h2>
+            <h2>
+                <ion-icon size="large" name="lock-closed-outline"></ion-icon>
+                <p>Reservadamente</p>
+            </h2>
+        </section>
+    </div>
     <header>
         <img src="images/logo 1.png" alt="">
-        <ion-icon class="profile-icon" size="large" name="people-outline"></ion-icon>
+        <button onclick="setMenu()">
+            <ion-icon size="large" name="people-outline"></ion-icon>
+        </button>
     </header>
     <main>
         <div class="msg">
@@ -53,11 +81,23 @@
                 </span>
             </p>
         </div>
-        
+        <div class="msg">
+            <p>
+                <span class="msgDate">
+                    (09:21:45)
+                </span>
+                <span class="user">
+                    <strong>Maria </strong>
+                </span>
+                <span class="action">
+                    saiu da sala...
+                </span>
+            </p>
+        </div>
     </main>
     <div class="chatInput">
         <input placeholder="Escreva aqui..." type="text">
-        <button type="submit">
+        <button onclick="console.log('enviado')" type="submit">
             <ion-icon size="large" name="paper-plane-outline"></ion-icon>
         </button>
     </div>
