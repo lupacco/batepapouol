@@ -12,43 +12,47 @@
     <div class="menu hide">
         <div onclick="setMenu()" class="closeMenu"></div>
         <section>
-            <h1>Escolha um contato<br> para enviar mensagem</h1>
-            <h2 onclick="checkOption(this)">
-                <div>
-                    <ion-icon size="large" name="people"></ion-icon>
-                    <p>Todos</p>
-                </div>
-                <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
-            </h2>
-            <h2 onclick="checkOption(this)">
-                <div>
-                    <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                    <p>João</p>
-                </div>
-                <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
-            </h2>
-            <h2 onclick="checkOption(this)">
-                <div>
-                    <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                    <p>Maria</p>
-                </div>
-                <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
-            </h2>
-            <h1>Escolha a visibilidade</h1>
-            <h2 onclick="checkOption(this)">
-                <div>
-                    <ion-icon class="lock" name="lock-open"></ion-icon>
-                    <p>Público</p>
-                </div>
-                <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
-            </h2>
-            <h2 onclick="checkOption(this)">
-                <div>
-                    <ion-icon class="lock" name="lock-closed"></ion-icon>
-                    <p>Reservadamente</p>
-                </div>
-                <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
-            </h2>
+            <div>
+                <h1>Escolha um contato<br> para enviar mensagem</h1>
+                <h2 onclick="checkOption(this)">
+                    <div>
+                        <ion-icon size="large" name="people"></ion-icon>
+                        <p>Todos</p>
+                    </div>
+                    <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
+                </h2>
+                <h2 onclick="checkOption(this)">
+                    <div>
+                        <ion-icon size="large" name="person-circle-outline"></ion-icon>
+                        <p>João</p>
+                    </div>
+                    <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
+                </h2>
+                <h2 onclick="checkOption(this)">
+                    <div>
+                        <ion-icon size="large" name="person-circle-outline"></ion-icon>
+                        <p>Maria</p>
+                    </div>
+                    <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
+                </h2>
+            </div>
+            <div class="visibility">
+                <h1>Escolha a visibilidade</h1>
+                <h2 onclick="getThis(this)">
+                    <div>
+                        <ion-icon class="lock public" name="lock-open"></ion-icon>
+                        <p>Público</p>
+                    </div>
+                    <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
+                </h2>
+                <h2 onclick="setVisibility(this)">
+                    <div>
+                        <ion-icon class="lock private" name="lock-closed"></ion-icon>
+                        <p>Reservadamente</p>
+                    </div>
+                    <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
+                </h2>
+            </div>
         </section>
     </div>
     <header>
@@ -112,7 +116,7 @@
         </div>
     </main>
     <div class="chatInput">
-        <input placeholder="Escreva aqui..." type="text">
+        <textarea placeholder="Escreva aqui..." name="" id="" cols="30" rows="10"></textarea>
         <button onclick="console.log('enviado')" type="submit">
             <ion-icon size="large" name="paper-plane-outline"></ion-icon>
         </button>
@@ -120,8 +124,7 @@
 
 
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>

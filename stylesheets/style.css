@@ -56,13 +56,16 @@ main{
     z-index: 1;
     background-color: #FFFFFF;
     width: 100%;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px;
     box-shadow: -8px 0 10px #D1D1D1;
 }
-.chatInput input{
+.chatInput textarea{
+    padding: 12px 0;
+    height: 64px;
     border-style: none;
     font-size: 18px;
     color: black;
