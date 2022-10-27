@@ -9,49 +9,39 @@
     <title>Bate papo UOL</title>
 </head>
 <body>
-    <div class="menu hide">
+    <div class="menu hidden">
         <div onclick="setMenu()" class="closeMenu"></div>
         <section>
-            <div>
-                <h1>Escolha um contato<br> para enviar mensagem</h1>
-                <h2 onclick="checkOption(this)">
-                    <div>
-                        <ion-icon size="large" name="people"></ion-icon>
-                        <p>Todos</p>
-                    </div>
-                    <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
-                </h2>
-                <h2 onclick="checkOption(this)">
-                    <div>
-                        <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                        <p>João</p>
-                    </div>
-                    <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
-                </h2>
-                <h2 onclick="checkOption(this)">
-                    <div>
-                        <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                        <p>Maria</p>
-                    </div>
-                    <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
-                </h2>
+            <div class="contacts">
+                <h2>Escolha um contato<br> para enviar mensagem</h2>
+                <h3>
+                    <ion-icon size="large" name="people"></ion-icon>
+                        Todos
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </h3>
+                <h3 class="hide">
+                    <ion-icon size="large" name="person-circle-outline"></ion-icon>
+                        João
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </h3>
+                <h3 class="hide">
+                    <ion-icon size="large" name="person-circle-outline"></ion-icon>
+                        Maria
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </h3>
             </div>
             <div class="visibility">
-                <h1>Escolha a visibilidade</h1>
-                <h2 onclick="getThis(this)">
-                    <div>
-                        <ion-icon class="lock public" name="lock-open"></ion-icon>
-                        <p>Público</p>
-                    </div>
-                    <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
-                </h2>
-                <h2 onclick="setVisibility(this)">
-                    <div>
-                        <ion-icon class="lock private" name="lock-closed"></ion-icon>
-                        <p>Reservadamente</p>
-                    </div>
-                    <ion-icon class="hide check" name="checkmark-outline"></ion-icon>
-                </h2>
+                <h2>Escolha a visibilidade</h2>
+                <h3>
+                    <ion-icon class="lock public" name="lock-open"></ion-icon>
+                    Público
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </h3>
+                <h3 class="hide">
+                    <ion-icon class="lock private" name="lock-closed"></ion-icon>
+                    Reservadamente
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </h3>
             </div>
         </section>
     </div>
@@ -62,7 +52,7 @@
         </button>
     </header>
     <main>
-        <div class="msg">
+        <!-- <div class="msg">
             <p>
                 <span class="msgDate">
                     (09:21:45)
@@ -74,8 +64,8 @@
                     entra na sala...
                 </span>
             </p>
-        </div>
-        <div class="msg direct">
+        </div> -->
+        <!-- <div class="msg direct">
             <p>
                 <span class="msgDate">
                     (09:21:45)
@@ -87,8 +77,8 @@
                     Oi, João :)
                 </span>
             </p>
-        </div>
-        <div class="msg reserved">
+        </div> -->
+        <!-- <div class="msg reserved">
             <p>
                 <span class="msgDate">
                     (09:21:45) 
@@ -100,8 +90,8 @@
                     Oi gatinha quer tc?
                 </span>
             </p>
-        </div>
-        <div class="msg">
+        </div> -->
+        <!-- <div class="msg">
             <p>
                 <span class="msgDate">
                     (09:21:45)
@@ -113,11 +103,11 @@
                     saiu da sala...
                 </span>
             </p>
-        </div>
+        </div> -->
     </main>
     <div class="chatInput">
         <textarea placeholder="Escreva aqui..." name="" id="" cols="30" rows="10"></textarea>
-        <button onclick="console.log('enviado')" type="submit">
+        <button onclick="sendMessage()" type="submit">
             <ion-icon size="large" name="paper-plane-outline"></ion-icon>
         </button>
     </div>
