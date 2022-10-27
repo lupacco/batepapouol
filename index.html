@@ -9,8 +9,15 @@
     <title>Bate papo UOL</title>
 </head>
 <body>
+    <div class="login">
+        <img src="images/logo 1.png" alt="">
+        <div>
+            <input placeholder="Digite seu nome" type="text">
+            <button onclick="setUser()">Entrar</button>
+        </div>
+    </div>
     <div class="menu hidden">
-        <div onclick="setMenu()" class="closeMenu"></div>
+        <div onclick="openMenu()" class="closeMenu"></div>
         <section>
             <div class="contacts">
                 <h2>Escolha um contato<br> para enviar mensagem</h2>
@@ -45,72 +52,72 @@
             </div>
         </section>
     </div>
-    <header>
-        <img src="images/logo 1.png" alt="">
-        <button onclick="setMenu()">
-            <ion-icon class="menuIcon" name="people"></ion-icon>
-        </button>
-    </header>
-    <main>
-        <!-- <div class="msg">
-            <p>
-                <span class="msgDate">
-                    (09:21:45)
-                </span>
-                <span class="user">
-                    <strong>João </strong>
-                </span>
-                <span class="action">
-                    entra na sala...
-                </span>
-            </p>
-        </div> -->
-        <!-- <div class="msg direct">
-            <p>
-                <span class="msgDate">
-                    (09:21:45)
-                </span>
-                <span class="user">
-                    <strong>Maria</strong> para <strong>João</strong>:
-                </span>
-                <span class="action">
-                    Oi, João :)
-                </span>
-            </p>
-        </div> -->
-        <!-- <div class="msg reserved">
-            <p>
-                <span class="msgDate">
-                    (09:21:45) 
-                </span>
-                <span class="user">
-                    <strong>João</strong> reservadamente para <strong>Maria</strong>: 
-                </span>
-                <span class="action">
-                    Oi gatinha quer tc?
-                </span>
-            </p>
-        </div> -->
-        <!-- <div class="msg">
-            <p>
-                <span class="msgDate">
-                    (09:21:45)
-                </span>
-                <span class="user">
-                    <strong>Maria </strong>
-                </span>
-                <span class="action">
-                    saiu da sala...
-                </span>
-            </p>
-        </div> -->
-    </main>
-    <div class="chatInput">
-        <textarea placeholder="Escreva aqui..." name="" id="" cols="30" rows="10"></textarea>
-        <button onclick="sendMessage()" type="submit">
-            <ion-icon size="large" name="paper-plane-outline"></ion-icon>
-        </button>
-    </div>
+        <header>
+            <img src="images/logo 1.png" alt="">
+            <button onclick="openMenu()">
+                <ion-icon class="menuIcon" name="people"></ion-icon>
+            </button>
+        </header>
+        <main>
+            <!-- <div class="msg">
+                <p>
+                    <span class="msgDate">
+                        (09:21:45)
+                    </span>
+                    <span class="user">
+                        <strong>João </strong>
+                    </span>
+                    <span class="action">
+                        entra na sala...
+                    </span>
+                </p>
+            </div> -->
+            <!-- <div class="msg direct">
+                <p>
+                    <span class="msgDate">
+                        (09:21:45)
+                    </span>
+                    <span class="user">
+                        <strong>Maria</strong> para <strong>João</strong>:
+                    </span>
+                    <span class="action">
+                        Oi, João :)
+                    </span>
+                </p>
+            </div> -->
+            <!-- <div class="msg reserved">
+                <p>
+                    <span class="msgDate">
+                        (09:21:45)
+                    </span>
+                    <span class="user">
+                        <strong>João</strong> reservadamente para <strong>Maria</strong>:
+                    </span>
+                    <span class="action">
+                        Oi gatinha quer tc?
+                    </span>
+                </p>
+            </div> -->
+            <!-- <div class="msg">
+                <p>
+                    <span class="msgDate">
+                        (09:21:45)
+                    </span>
+                    <span class="user">
+                        <strong>Maria </strong>
+                    </span>
+                    <span class="action">
+                        saiu da sala...
+                    </span>
+                </p>
+            </div> -->
+        </main>
+        <div class="chatInput">
+            <textarea placeholder="Escreva aqui..." name="" id="" cols="30" rows="10"></textarea>
+            <button onclick="sendMessage()" type="submit">
+                <ion-icon size="large" name="paper-plane-outline"></ion-icon>
+            </button>
+        </div>
 
 
 

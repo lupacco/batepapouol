@@ -10,6 +10,42 @@ body{
     background: #F5F5F5;
     font-family: 'Roboto', sans-serif;
 }
+.login{
+    position: absolute;
+    z-index: 2;
+    top: 0%;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login img{
+    width: 130px;
+    margin: 6em;
+}
+.login div{
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login input{
+    width: 261px;
+    height: 54px;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    margin: 1em;
+    text-align: center;
+    font-size: 18px;
+}
+.login button{
+    background-color: #E7E7E7;
+    width: 109px;
+    height: 45px;
+    border-radius: 9px;
+}
 header{
     position: fixed;
     top: 0;
