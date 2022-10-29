@@ -260,9 +260,13 @@ function sendMessage(){
     axios.post('https://mock-api.driven.com.br/api/v6/uol/messages',message)
     .then(res => {
         console.log('mensagem enviada')
+        //Clena text area
+        document.querySelector('textarea').value = ''
     })
-    //Clena text area
-    document.querySelector('textarea').value = ''
+    .catch(err => {
+        alert("Você foi desconectado!")
+        window.location.reload()
+    })
 }
 
 
