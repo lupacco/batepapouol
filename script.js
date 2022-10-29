@@ -155,6 +155,7 @@ function renderMessage(msg){
             `
     }
     else if(msg.type == 'private_message'){
+        if(msg.from == user.name || msg.to == user.name){
             document.querySelector('main').innerHTML += `
                 <div class="msg reserved">
                     <p>
@@ -170,6 +171,7 @@ function renderMessage(msg){
                     </p>
                 </div>
             `
+        }
     }
 }
 //Variable that saves the last rendered message
