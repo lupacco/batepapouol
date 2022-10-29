@@ -16,19 +16,14 @@ function setUser(){
     //set user's name based on input value
     user.name = inputValue
     joinChat()
+    renderMenu()
+    
 }
 
 //Open menu sidebar
-function openMenu(){
+function openCloseMenu(){
     let menu = document.querySelector('.menu')
     menu.classList.toggle('hidden')
-    renderMenu()
-}
-//Close menu sidebar
-function closeMenu(){
-    let menu = document.querySelector('.menu')
-    menu.classList.toggle('hidden')
-    menu.querySelector('.contacts').innerHTML = ''
 }
 
 //API FUNCTIONS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -48,13 +43,23 @@ function renderMenu(){
     .then(res => {
         let persons = res.data
         persons.forEach(person => {
-            contactsList.innerHTML += `
-            <h3 class="hide">
-                <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                    ${person.name}
-                <ion-icon class="check" name="checkmark-outline"></ion-icon>
-            </h3>
-            `
+            if(person.name == msgReceiver){
+                contactsList.innerHTML += `
+                <h3>
+                    <ion-icon size="large" name="person-circle-outline"></ion-icon>
+                        ${person.name}
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </h3>
+                `
+            }else{
+                contactsList.innerHTML += `
+                <h3 class="hide">
+                    <ion-icon size="large" name="person-circle-outline"></ion-icon>
+                        ${person.name}
+                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </h3>
+                `
+            }
         })
         //Ensures that only one contact option is selected
         let contacts = Array.from(document.querySelectorAll('.contacts h3') )
@@ -208,16 +213,43 @@ function renderLastMessage(){
         }
     })
 }
+let msgReceiver = 'Todos'
+let msgType = 'message'
 
-
+//Check message receiver
+function checkReceiver(){
+    let contactList = Array.from(document.querySelectorAll('.contacts h3'))
+    contactList.forEach(ctt => {
+        if(!ctt.classList.contains('hide')){
+            msgReceiver = ctt.textContent
+        }
+    })   
+}
+//Check message type
+function checkMsgType(){
+    let visibilityList = Array.from(document.querySelectorAll('.visibility h3'))
+    visibilityList.forEach(option => {
+        if(!option.classList.contains('hide')){
+            let icon = option.querySelector('ion-icon')
+            let visibilityClass = icon.classList[1]
+            if(visibilityClass != 'public'){
+                msgType = 'private_message'
+            }else{
+                msgType = 'message'
+            }
+        }
+    })
+}
 //Send message
 function sendMessage(){
+    checkReceiver()
+    checkMsgType()
     //Create an message object
     let message = {
         from: user.name,
-        to: "Todos",
-        text: 'Mensagem padrão galeraaa',
-        type: "message" 
+        to: msgReceiver,
+        text: '',
+        type: msgType 
     }
     //Get value from text area
     let messageToSend = document.querySelector('textarea').value
@@ -226,7 +258,7 @@ function sendMessage(){
     //Send message to server
     axios.post('https://mock-api.driven.com.br/api/v6/uol/messages',message)
     .then(res => {
-        console.log(res)
+        console.log('mensagem enviada')
     })
     //Clena text area
     document.querySelector('textarea').value = ''
