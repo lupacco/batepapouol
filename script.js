@@ -16,7 +16,7 @@ function setUser(){
     //set user's name based on input value
     user.name = inputValue
     joinChat()
-    renderMenu()
+    setInterval(renderMenu, 10000)
     
 }
 
