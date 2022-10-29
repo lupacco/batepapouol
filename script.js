@@ -15,9 +15,19 @@ function setUser(){
     let inputValue = document.querySelector('.login input').value
     //set user's name based on input value
     user.name = inputValue
-    joinChat()
-    setInterval(renderMenu, 10000)
-    
+    runLoader()
+}
+//Run loader
+function runLoader(){
+    let loader = document.querySelector('.loader')
+    let inpBut = document.querySelector('.userInput')
+    console.log(inpBut)
+    inpBut.classList.toggle('hidden')
+    loader.classList.toggle('hidden')
+    setTimeout(()=>{
+        joinChat()
+        renderMenu()
+    },2000)
 }
 
 //Open menu sidebar
@@ -32,44 +42,45 @@ function openCloseMenu(){
 function renderMenu(){
     let contactsList = document.querySelector('.contacts')
     contactsList.innerHTML += `
-        <h2>Escolha um contato<br> para enviar mensagem</h2>
+    <h2>Escolha um contato<br> para enviar mensagem</h2>
         <h3>
-            <ion-icon size="large" name="people"></ion-icon>
-                Todos
-            <ion-icon class="check" name="checkmark-outline"></ion-icon>
+        <ion-icon size="large" name="people"></ion-icon>
+        Todos
+        <ion-icon class="check" name="checkmark-outline"></ion-icon>
         </h3>
-    `
-    axios.get('https://mock-api.driven.com.br/api/v6/uol/participants')
-    .then(res => {
-        let persons = res.data
-        persons.forEach(person => {
-            if(person.name == msgReceiver){
-                contactsList.innerHTML += `
-                <h3>
+        `
+        axios.get('https://mock-api.driven.com.br/api/v6/uol/participants')
+        .then(res => {
+            let persons = res.data
+            persons.forEach(person => {
+                if(person.name == msgReceiver){
+                    contactsList.innerHTML += `
+                    <h3>
                     <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                        ${person.name}
+                    ${person.name}
                     <ion-icon class="check" name="checkmark-outline"></ion-icon>
-                </h3>
-                `
-            }else{
-                contactsList.innerHTML += `
-                <h3 class="hide">
+                    </h3>
+                    `
+                }else{
+                    contactsList.innerHTML += `
+                    <h3 class="hide">
                     <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                        ${person.name}
+                    ${person.name}
                     <ion-icon class="check" name="checkmark-outline"></ion-icon>
-                </h3>
-                `
-            }
-        })
-        //Ensures that only one contact option is selected
-        let contacts = Array.from(document.querySelectorAll('.contacts h3') )
-        contacts.forEach(item => {
-            item.addEventListener('click', function(event) {
-                for(c in contacts){
-                    contacts[c].classList.add('hide')
+                    </h3>
+                    `
                 }
-                event.target.classList.toggle('hide')
-            })    
+            })
+            //Ensures that only one contact option is selected
+            let contacts = Array.from(document.querySelectorAll('.contacts h3') )
+            contacts.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    for(c in contacts){
+                        contacts[c].classList.add('hide')
+                    }
+                    event.target.classList.toggle('hide')
+                })    
+            setInterval(renderMenu, 10000)
         })
         //Ensure that only one privacy setup is selected
         let privacy = Array.from(document.querySelectorAll('.visibility h3'))
