@@ -68,7 +68,7 @@ main{
 }
 
 .msg{
-    background: #E5E5E5;
+    background-color: #FFFFFF;
     width: 100%;
     margin: 4px 0;
     display: flex;
@@ -81,8 +81,8 @@ main{
 .msg p{
     margin: 4px;
 }
-.direct{
-    background-color: #FFFFFF;
+.status{
+    background: #E5E5E5;
 }
 .reserved{
     background-color: #FFDEDE;

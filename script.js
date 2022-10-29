@@ -139,7 +139,7 @@ function renderMessage(msg){
     }
     else if(msg.type == 'status'){
             document.querySelector('main').innerHTML += `
-                <div class="msg">
+                <div class="msg status">
                     <p>
                         <span class="msgDate">
                             (${msg.time})
