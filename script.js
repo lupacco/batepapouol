@@ -95,8 +95,8 @@ function joinChat(){
         setInterval(updateStatus, 5000)
     })
     .catch(err => {
-        console.log(err)
-        console.log('tente novamente')
+        alert('Este nome de usuário já está em uso, por favor escolha outro nome de usuário')
+        window.location.reload()
     })
     
 }
@@ -194,8 +194,7 @@ function renderChat(){
     .catch(err => {
         console.log(err)
     })
-    setInterval(renderLastMessage, 1000)
-    // renderLastMessage()
+    setInterval(renderLastMessage, 200)
 }
 //Render last message
 function renderLastMessage(){
