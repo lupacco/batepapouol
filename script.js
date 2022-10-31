@@ -285,6 +285,13 @@ function sendMessage(){
     })
 }
 
+//Send messages through enter
+document.querySelector('.sendMsg').addEventListener('keydown', (e) => {
+    if( e.key === 'Enter'){
+        sendMessage()
+    }
+})
+
 
 
 
