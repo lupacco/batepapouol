@@ -170,7 +170,7 @@ h3{
 }
 h3 p{
     overflow: hidden;
-    margin: 8px;
+    margin: 0 8px;
     max-width: 160px;
     max-height: 32px;
 }
