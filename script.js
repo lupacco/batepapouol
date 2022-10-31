@@ -58,7 +58,9 @@ function renderMenu(){
                     contactsList.innerHTML += `
                     <h3>
                     <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                    ${person.name}
+                    <p>
+                        ${person.name}
+                    </p>
                     <ion-icon class="check" name="checkmark-outline"></ion-icon>
                     </h3>
                     `
@@ -66,7 +68,9 @@ function renderMenu(){
                     contactsList.innerHTML += `
                     <h3 class="hide">
                     <ion-icon size="large" name="person-circle-outline"></ion-icon>
-                    ${person.name}
+                    <p>
+                        ${person.name}
+                    </p>
                     <ion-icon class="check" name="checkmark-outline"></ion-icon>
                     </h3>
                     `
