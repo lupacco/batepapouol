@@ -21,12 +21,12 @@ function setUser(){
 function runLoader(){
     let loader = document.querySelector('.loader')
     let inpBut = document.querySelector('.userInput')
-    console.log(inpBut)
     inpBut.classList.toggle('hidden')
     loader.classList.toggle('hidden')
     setTimeout(()=>{
         joinChat()
         renderMenu()
+        setInterval(renderMenu, 10000)
     },2000)
 }
 
@@ -41,19 +41,20 @@ function openCloseMenu(){
 //Render menu options
 function renderMenu(){
     let contactsList = document.querySelector('.contacts')
-    contactsList.innerHTML += `
-    <h2>Escolha um contato<br> para enviar mensagem</h2>
-        <h3>
-        <ion-icon size="large" name="people"></ion-icon>
-        Todos
-        <ion-icon class="check" name="checkmark-outline"></ion-icon>
-        </h3>
-        `
+    contactsList.innerHTML = `
+        <h2>Escolha um contato<br> para enviar mensagem</h2>
+            <h3>
+            <ion-icon size="large" name="people"></ion-icon>
+            Todos
+            <ion-icon class="check" name="checkmark-outline"></ion-icon>
+            </h3>
+    `
         axios.get('https://mock-api.driven.com.br/api/v6/uol/participants')
         .then(res => {
             let persons = res.data
             persons.forEach(person => {
                 if(person.name == msgReceiver){
+                    document.querySelector('.contacts h3').classList.toggle('hide')
                     contactsList.innerHTML += `
                     <h3>
                     <ion-icon size="large" name="person-circle-outline"></ion-icon>
@@ -79,8 +80,8 @@ function renderMenu(){
                         contacts[c].classList.add('hide')
                     }
                     event.target.classList.toggle('hide')
+                    msgReceiver = event.target.textContent.replace(/\s+/g,'')
                 })    
-            setInterval(renderMenu, 10000)
         })
         //Ensure that only one privacy setup is selected
         let privacy = Array.from(document.querySelectorAll('.visibility h3'))
@@ -219,7 +220,7 @@ function renderLastMessage(){
             renderMessage(lastMsgAPI)
             let lastMsgHTML = chat.querySelector('div:last-child')
             //Scroll screen to last message rendered
-            //lastMsgHTML.scrollIntoView()
+            lastMsgHTML.scrollIntoView()
             //Update last message in HTML
             lastMsgInHTML = lastMsgAPI
         }
@@ -233,7 +234,7 @@ function checkReceiver(){
     let contactList = Array.from(document.querySelectorAll('.contacts h3'))
     contactList.forEach(ctt => {
         if(!ctt.classList.contains('hide')){
-            msgReceiver = ctt.textContent
+            msgReceiver = ctt.textContent.replace(/\s+/g,'')
         }
     })   
 }
