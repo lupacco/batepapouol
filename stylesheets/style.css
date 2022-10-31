@@ -79,7 +79,6 @@ header button ion-icon{
     font-size: 48px; 
 }
 .contacts{
-    width: 300px;
     overflow: scroll;
 }
 main{
@@ -171,7 +170,9 @@ h3{
 }
 h3 p{
     overflow: hidden;
-    width: 100px;
+    margin: 8px;
+    max-width: 160px;
+    max-height: 32px;
 }
 
 h3.hide > .check{
