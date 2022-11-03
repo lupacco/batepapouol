@@ -43,7 +43,7 @@ function renderMenu(){
     let contactsList = document.querySelector('.contacts')
     contactsList.innerHTML = `
         <h2>Escolha um contato<br> para enviar mensagem</h2>
-            <h3>
+            <h3 data-test="all">
             <ion-icon size="large" name="people"></ion-icon>
             Todos
             <ion-icon class="check" name="checkmark-outline"></ion-icon>
@@ -56,22 +56,22 @@ function renderMenu(){
                 if(person.name == msgReceiver){
                     document.querySelector('.contacts h3').classList.toggle('hide')
                     contactsList.innerHTML += `
-                    <h3>
+                    <h3 data-test="participant">
                     <ion-icon size="large" name="person-circle-outline"></ion-icon>
                     <p>
                         ${person.name}
                     </p>
-                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                    <ion-icon data-test="check" class="check" name="checkmark-outline"></ion-icon>
                     </h3>
                     `
                 }else{
                     contactsList.innerHTML += `
-                    <h3 class="hide">
+                    <h3 data-test="participant" class="hide">
                     <ion-icon size="large" name="person-circle-outline"></ion-icon>
                     <p>
                         ${person.name}
                     </p>
-                    <ion-icon class="check" name="checkmark-outline"></ion-icon>
+                    <ion-icon data-test="check" class="check" name="checkmark-outline"></ion-icon>
                     </h3>
                     `
                 }
@@ -138,7 +138,7 @@ function sameMessage(lastMessage, currentMessage) {
 function renderMessage(msg){
     if(msg.type == 'message'){
         document.querySelector('main').innerHTML += `
-            <div class="msg">
+            <div data-test="message" class="msg">
                 <p>
                     <span class="msgDate">
                         (${msg.time})
@@ -155,7 +155,7 @@ function renderMessage(msg){
     }
     else if(msg.type == 'status'){
             document.querySelector('main').innerHTML += `
-                <div class="msg status">
+                <div data-test="message" class="msg status">
                     <p>
                         <span class="msgDate">
                             (${msg.time})
@@ -173,7 +173,7 @@ function renderMessage(msg){
     else if(msg.type == 'private_message'){
         if(msg.from == user.name || msg.to == user.name){
             document.querySelector('main').innerHTML += `
-                <div class="msg reserved">
+                <div data-test="message" class="msg reserved">
                     <p>
                         <span class="msgDate">
                             (${msg.time}) 
